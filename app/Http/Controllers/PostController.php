@@ -17,20 +17,15 @@ class PostController extends Controller
     }
 
     public function index(){
-        $posts=Post::orderBy('created_at','desc')->with('user','likes')->paginate(10);//collection
+        // $posts=Post::orderBy('created_at','desc')->with('user','likes');//collection
         
-
-        return view('posts.index',[
-            'posts'=>$posts
-        ]);
+        return view('posts.index');
     }
 
     public function store(Request $req){
         $this->validate($req,[
             'body'=>'required'
         ]);
-
-        
 
         $req->user()->posts()->create([
             'body'=>$req->body

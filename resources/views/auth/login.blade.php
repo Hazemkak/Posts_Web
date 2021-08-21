@@ -4,6 +4,11 @@
     <div class="flex justify-center">
         <div class="w-4/12 bg-white p-6 rounded-lg">
 
+            @if (session('registerFeed'))
+                <div class="alert alert-success">
+                    {{ session('registerFeed') }}
+                </div>
+            @endif
             @if(session('status'))
                 <div class="text-red-500 mt-2 text-sm">
                     {{ session('status') }}
