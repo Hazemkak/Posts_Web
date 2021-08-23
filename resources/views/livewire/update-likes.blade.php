@@ -1,5 +1,5 @@
 <div>
-
+    @if($show)
         <div class="mb-4">
             <a href="{{ route('user.posts', $post->user) }}" class="font-bold">{{ $post->user->name }}</a> <span
                 class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
@@ -35,5 +35,9 @@
             </div>
         </div>
         <hr>
-
+    @else
+        <div class="text-red-500 mt-2 text-sm">
+            post is deleted successfully
+        </div>
+    @endif
 </div>

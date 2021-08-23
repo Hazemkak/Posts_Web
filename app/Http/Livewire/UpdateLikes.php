@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class UpdateLikes extends Component
 {
     public $post;
+    public $show=true;
 
     public function like(){
             if(!$this->post->alreadyLiked(Auth::user())){
@@ -29,7 +30,7 @@ class UpdateLikes extends Component
 
     public function delete($id){
         Post::find($id)->delete();
-        $this->emitTo('PostCreation','refreshParentComponent');
+        $this->show=false;
     }
 
     public function render()
